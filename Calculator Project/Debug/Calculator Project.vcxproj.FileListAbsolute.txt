@@ -1,0 +1,2 @@
+C:\Users\Cameron\Documents\Visual Studio 2019\Calculator Project\Debug\Calculator Project.exe
+C:\Users\Cameron\Documents\Visual Studio 2019\Calculator Project\Debug\Calculator Project.pdb
