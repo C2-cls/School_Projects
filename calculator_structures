@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+int main(void)
+{
+	struct numbers		// Create stucture to hold variables
+	{					
+		int num1;
+		int num2;
+		int result;	
+	};
+	/* Structure is created first, containing all variables to be initialized
+	and all variables will be accessed through the following initialization*/
+	struct numbers calculate;	
+
+	calculate.num1 = 0;
+	calculate.num2 = 0;
+	calculate.result = 0;
+
+	char operator;		// Variable to carry arithmetic operators
+
+	printf("Enter number 1: ");						// Promt user for number 1
+	scanf_s("%i", &calculate.num1);
+
+	printf("\nEnter an operator (+, -, *, /) : ");	// Prompt user for arithmetic operator
+	scanf_s(" %c", &operator,3);					//scanf depreciated, used scanf_s; included buffer amount '3'
+
+	printf("\nEnter number 2: ");					// Prompt user for number 2 (last number)
+	scanf_s("%i", &calculate.num2);
+
+	switch (operator)				// Use switch function to evaluate operator characters
+	{								// These variables are not pointers
+	case '+':
+		calculate.result = calculate.num1 + calculate.num2;
+		break;						// Add break; statements to all switch cases
+	case '-':
+		calculate.result = calculate.num1 - calculate.num2;
+		break;
+	case '*':
+		calculate.result = calculate.num1 * calculate.num2;
+		break;
+	case '/':
+		if (calculate.num2 == 0) {
+			printf("\nDivision by zero prohibited...\n");		// Division by zero protection
+		}
+		else {
+			calculate.result = calculate.num1 / calculate.num2;
+		}
+		break;
+	default:						// default case will prevent unknown entries.
+		printf("Invalid input");
+		break;
+	}
+	printf("\nResult: %i %c %i = %i\n", calculate.num1, operator, calculate.num2, calculate.result);	// Print results
+	return 0;
+}
